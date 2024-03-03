@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Registration</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Exo', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #4e54c8;
+            background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
+            background: linear-gradient(to left, #8f94fb, #4e54c8);
+            position: relative;
+            overflow: hidden; /* Prevent overflow */
+        }
+
+        .container {
+            background-color: transparent;
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 500px;
+            width: 100%;
+            z-index: 1; /* Ensure form appears above background */
+            position: relative;
+            height: 640px;
+        }
+
+        form {
+            width: 100%;
+            
+        }
+
+        label {
+            background: transparent ;
+            font-weight: bold
+                    }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 5px 0 15px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: transparent;
+            color: black;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            width: 100px;
+            min-height: 40px;
+            border-radius: 50px;
+        
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Responsive styles */
+        @media only screen and (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            select,
+            textarea {
+                width: 100%;
+            }
+        }
+
+        /* Animation for background circles */
+        .circles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0; /* Ensure background circles are behind the form */
+        }
+
+        .circles li {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            animation: animate 25s linear infinite;
+            bottom: -150px;
+        }
+
+        .circles li:nth-child(1) {
+            left: 25%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+        }
+
+        .circles li:nth-child(2) {
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 1s;
+            animation-duration: 12s;
+        }
+
+        .circles li:nth-child(3) {
+            left: 70%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 4s;
+        }
+
+        .circles li:nth-child(4) {
+            left: 40%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+        }
+
+        .circles li:nth-child(5) {
+            left: 65%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+        }
+
+        .circles li:nth-child(6) {
+            left: 75%;
+            width: 110px;
+            height: 110px;
+            animation-delay: 3s;
+        }
+
+        .circles li:nth-child(7) {
+            left: 35%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 7s;
+        }
+
+        .circles li:nth-child(8) {
+            left: 50%;
+            width: 25px;
+            height: 25px;
+            animation-delay: 15s;
+            animation-duration: 45s;
+        }
+
+        .circles li:nth-child(9) {
+            left: 20%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 2s;
+            animation-duration: 35s;
+        }
+
+        .circles li:nth-child(10) {
+            left: 85%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 0s;
+            animation-duration: 11s;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+                border-radius: 0;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
+            }
+        }
+        #form
+        {
+            margin: 10px;
+        }
+        #button1
+        {
+            padding-left: 32%;
+            padding-top: 20px;
+        }
+       
+        .static-txt
+        {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="circles">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="box">
+             
+                <div class="static-txt"> <h2>Registration Form </h2></div>
+
+        <form id="registrationForm" action="submit_registration.php" method="post" enctype="multipart/form-data">
+            <label for="fullname">Full Name *</label>
+            <input type="text" id="fullname" name="fullname" required>
+        
+            <label for="school">School Name *</label>
+            <input type="text" id="school" name="school" required>
+        
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+        
+            <label for="standard">Standard *</label>
+            <input type="text" id="standard" name="standard" required>
+        
+            <label for="event">Event Participate *</label>
+            <select id="event" name="event" required>
+                <option value=""> Select-Workshop-Event</option>
+                <option value="Event1">Artificial Intelligence and Machine Learning</option>
+                <option value="Event2">Dron</option>
+                <option value="Event3">Robotics</option>
+                <option value="Event3">Internet Of Things</option>
+                <option value="Event3">Mobile App</option>
+                <option value="Event3">3D Printing</option>
+                <!-- Add more options as needed -->
+            </select>
+                    
+
+                    <label for="project_title" >Project Title </label>
+                    <input type="text" id="project_title" name="project_title" required>
+                
+                    <label for="photo">Upload Photo *</label>
+                    <input type="file" id="photo" name="photo" accept="image/*" required>
+                    <br>
+                    <div id="button1">
+                        <button  class="btn" onclick="showSuccessMessage()">Register</button> 
+                    </div>
+                   
+                </form> 
+            </div>
+        </div>
+        
+            
+            <script>
+                function showSuccessMessage() {
+                    alert("You are successfully registered!");
+                }
+            </script>
+        </body>
+        </html>
